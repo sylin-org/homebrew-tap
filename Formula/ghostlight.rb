@@ -1,22 +1,22 @@
 class Ghostlight < Formula
   desc "Governed browser automation over your own authenticated Chromium session (MCP)"
   homepage "https://sylin-org.github.io/ghostlight/"
-  version "0.5.0"
+  version "0.5.1"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/sylin-org/ghostlight/releases/download/v#{version}/ghostlight-v#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "1786c4edaef0cfb555c222e0d06e5b42104186fc6fe2ecc71d87e3b8e9b77b08"
+      url "https://github.com/sylin-org/ghostlight/releases/download/v0.5.1/ghostlight-v#{version}-aarch64-apple-darwin.tar.gz"
+      sha256 "c782ee3343926664e9a75cf5eda6272b0f6613a1a5b68e9cf138528683509663"
     else
-      url "https://github.com/sylin-org/ghostlight/releases/download/v#{version}/ghostlight-v#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "daf24c37d404022c64c8e5f4a7c5deb022dc213ee7ffe8cd872a7655e0827682"
+      url "https://github.com/sylin-org/ghostlight/releases/download/v0.5.1/ghostlight-v#{version}-x86_64-apple-darwin.tar.gz"
+      sha256 "ef09ca952a2ce075e7144d3d8ee4ebf0ad3875106c5f538dbc450d9b3183a3c3"
     end
   end
 
   on_linux do
-    url "https://github.com/sylin-org/ghostlight/releases/download/v#{version}/ghostlight-v#{version}-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "a2b90831b5d3aa522a8e403020680f84d0465aaae061dbb283d3e81952f8dbe1"
+    url "https://github.com/sylin-org/ghostlight/releases/download/v0.5.1/ghostlight-v#{version}-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "a71e8fd60599137324f8611af549c21ea4db1b6317e4ec84c3f5c757e82b3c57"
   end
 
   def install
