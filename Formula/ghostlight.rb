@@ -1,6 +1,6 @@
 class Ghostlight < Formula
-  desc "Governed browser automation over your own authenticated Chromium session (MCP)"
-  homepage "https://sylin-org.github.io/ghostlight/"
+  desc "Visible local browser automation for compatible MCP clients"
+  homepage "https://sylin.org/ghostlight/"
   version "0.7.3"
   license "Apache-2.0"
 
@@ -29,8 +29,9 @@ class Ghostlight < Formula
     <<~EOS
       Connect the browser side (idempotent):
         ghostlight install
-      then add the "Ghostlight in Browser" extension.
-      Walkthrough: https://sylin-org.github.io/ghostlight/install.html
+      then add "Ghostlight in Browser" from the Chrome Web Store:
+        https://chromewebstore.google.com/detail/lejccfmoeogmhemakeknjjdhkfkgncdl
+      Walkthrough: https://sylin.org/ghostlight/
     EOS
   end
 
