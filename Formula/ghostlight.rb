@@ -1,36 +1,37 @@
+# Homebrew formula TEMPLATE for the sylin-org/homebrew-tap repository (Formula/ghostlight.rb).
+# Fill the four sha256 values from the release's .sha256 assets, then push to the tap.
+# Users: brew install sylin-org/tap/ghostlight
 class Ghostlight < Formula
-  desc "Visible local browser automation for compatible MCP clients"
+  desc "Governed browser automation over your own authenticated Chromium session (MCP)"
   homepage "https://sylin.org/ghostlight/"
-  version "0.7.3"
+  version "0.8.0"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/sylin-org/ghostlight/releases/download/v0.7.3/ghostlight-v#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "0846df68a843b1dfc2c35261a8a574a937579caa059c8a8167c43d24c18ebfbf"
+      url "https://github.com/sylin-org/ghostlight/releases/download/v0.8.0/ghostlight-v#{version}-aarch64-apple-darwin.tar.gz"
+      sha256 "ef19b7c69bc87845a892d8f05738c02b8cb54077c84407859078f1feb5ee41b2"
     else
-      url "https://github.com/sylin-org/ghostlight/releases/download/v0.7.3/ghostlight-v#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "40c975b81c894420480aa15aa5fa8cd6e695b7fe41ed48c7651516d02ceab5ec"
+      url "https://github.com/sylin-org/ghostlight/releases/download/v0.8.0/ghostlight-v#{version}-x86_64-apple-darwin.tar.gz"
+      sha256 "3864ffcdc60123f6fb6ac2dee3886354ca5324b824ceda769dbd678107fcc6a5"
     end
   end
 
   on_linux do
-    url "https://github.com/sylin-org/ghostlight/releases/download/v0.7.3/ghostlight-v#{version}-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "6b6ff0d88f96f3b0a74c4e5f09a70e5f5c63ae0fb5968c93da229a33006aadc9"
+    url "https://github.com/sylin-org/ghostlight/releases/download/v0.8.0/ghostlight-v#{version}-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "cfccecd708a7a015b0a78723eb25b4ef15731161eb410c24bd40490b08d889f3"
   end
 
   def install
-    # ADR-0046 as amended by ADR-0051: two executables ship in the archive
-    # (ghostlight + the single role-selected ghostlight-relay pass-through).
-    bin.install "ghostlight", "ghostlight-relay"
+    # ADR-0096: service, protocol-versioned MCP edge, and browser-only native relay.
+    bin.install "ghostlight", "ghostlight-mcp-connector", "ghostlight-browser-connector"
   end
 
   def caveats
     <<~EOS
       Connect the browser side (idempotent):
         ghostlight install
-      then add "Ghostlight in Browser" from the Chrome Web Store:
-        https://chromewebstore.google.com/detail/lejccfmoeogmhemakeknjjdhkfkgncdl
+      then add the "Ghostlight in Browser" extension.
       Walkthrough: https://sylin.org/ghostlight/
     EOS
   end
